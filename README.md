@@ -1,4 +1,4 @@
-# Better Svelte Config
+# Better Svelte Config for Production (Asset Hashing and JS mangling)
 
 A `rollup.config.js` &amp; `package.json` that supports the following out of the box:
 - Asset hashing in production
