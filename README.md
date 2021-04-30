@@ -6,7 +6,7 @@ A `rollup.config.js` &amp; `package.json` that supports the following out of the
 - Minified AND mangled JS in production (i.e. via `npm run build`)
 - correct parsing of dependency CSS
 
-## Usage
+## Usage
 
 Step 1: Rename your `index.html` files to include \*.[hash].\* and point from the route (i.e. the usual `public/build/` will be created at the root now, and all `public/*` files will be copied over and then hashed (in production). 
 
