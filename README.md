@@ -1,16 +1,19 @@
 # Better Svelte Config for Production (Asset Hashing and JS mangling)
 
 A `rollup.config.js` &amp; `package.json` that supports the following out of the box:
-- Asset hashing in production
+- Asset hashing in production for correct content-based cache invalidation
 - Single-page-app (SPA) routing capabilities (i.e. via `sirv --single`)
 - Minified AND mangled JS in production (i.e. via `npm run build`)
-- correct parsing of dependency CSS
+- Correct parsing of dependency CSS
+
+## How it works
+
+It copies over all files from the `public/*` folder into a `build/` folder. It builds CSS & JS bundles as normal and outputs them to the `build/` folder (and runs the hashing function in production).
 
 ## Usage
 
-Step 1: Rename your `index.html` files to include \*.[hash].\* and point from the route (i.e. the usual `public/build/` will be created at the root now, and all `public/*` files will be copied over and then hashed (in production). 
+Step 1: Update your assets paths in your `index.html` to include `*.[hash].*`. Example:
 
-Specifically
 
 ```diff
 <!doctype html>
@@ -29,6 +32,7 @@ Specifically
 </body>
 </html>
 ```
+Step 2: Keep in mind this rollup setup copies over all your `public/` files into a `build/` folder at the root of your working directory. 
 
 Step 2: Use the usual commands `npm run dev` and `npm run build`. Everything should work as before. 
 
